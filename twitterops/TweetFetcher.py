@@ -4,7 +4,6 @@ from KeyOps import KeyFetcher
 
 class TweetSearcher():
     base_url = 'https://api.twitter.com/'
-    
     client_key = ''
     client_secret = ''
     oAuthToken = ''
