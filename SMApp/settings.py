@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'twitterops.apps.TwitteropsConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'SMApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,10 +76,15 @@ WSGI_APPLICATION = 'SMApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ddutv3dsi8c1se',
+        'USER': 'nujwoqjcgvqbdg',
+        'PASSWORD':'b6fa925c30fd37da20b23e68bd38fa2ceeba6337df4d4160527658dbf8351767',
+        'HOST': 'ec2-46-137-188-105.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
