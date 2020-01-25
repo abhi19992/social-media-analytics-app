@@ -1,4 +1,4 @@
-cryptography==2.1.4
+cryptography==2.3
 Django==2.2.5
 djangorestframework==3.10.2
 dlib==19.18.0
