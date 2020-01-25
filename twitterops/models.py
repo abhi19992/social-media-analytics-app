@@ -15,14 +15,14 @@ class Tweet(models.Model):
 
 class Entity(models.Model):
     name = models.CharField(max_length = 30)
-    type = models.CharField(max_length = 40, default='')
+    type = models.CharField(max_length = 40, default='', blank = True)
 
     def __str__(self):
         return self.name
 
 class TweetEntities(models.Model):
     tweet = models.ForeignKey(Tweet, on_delete=models.CASCADE)
-    namedEntity = models.ForeignKey(Entity, on_delete=models.CASCADE)
+    namedEntity = models.ForeignKey(Entity, on_delete=models.CASCADE, blank = True)
 
     def __str__(self):
         return self.tweet.tweet_id + ' - ' + self.namedEntities
