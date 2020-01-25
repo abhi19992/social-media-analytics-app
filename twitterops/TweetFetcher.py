@@ -2,7 +2,9 @@ import base64
 import requests
 from KeyOps import KeyFetcher
 
-class TweetSearcher():
+from .models import *
+
+class TweetSearcher:
     base_url = 'https://api.twitter.com/'
     client_key = ''
     client_secret = ''
@@ -64,4 +66,42 @@ class TweetSearcher():
         else:
             return None
 
+class TweetFilterer:
     
+    def __init__(self, tweets_dict):
+        self.tweets_dict = tweets_dict
+
+    def filterByLanguage(self, lang = 'en'):
+        filtered_tweets = []
+
+        for tweet in self.tweets_dict['statuses']:
+            language = tweet['metadata']['iso_language_code']
+            
+            if(language == lang):
+                filtered_tweets.append(tweet)
+        
+        return filtered_tweets
+
+class TweetGetter:
+
+    def getSearchwords(types = 'all'):
+        entities = Entity.objects.all()
+
+        searchwords = []
+
+        for entity in entities:
+            keywords.append(entity.name)
+        
+        return searchwords
+
+
+    def getEnglishTweets():
+        ts = TweetSearcher()
+        tf = TweetFilterer()
+
+        searchwords = getSearchwords()
+
+        tweets = []
+
+        for s in searchwords:
+            pass #Start coding here
